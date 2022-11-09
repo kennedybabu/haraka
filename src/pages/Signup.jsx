@@ -17,6 +17,8 @@ const Signup = () => {
       console.log(error)
     }
   }
+
+  
   return (
     <div>
         <div>
