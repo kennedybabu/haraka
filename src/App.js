@@ -21,8 +21,7 @@ function App() {
           <Route path='/signup'  element={<Signup/>}/>
           <Route path='/account'  element={<ProtectedRoute><Account/></ProtectedRoute>}/>
         </Routes>
-      </AuthContextProvider>
-      
+      </AuthContextProvider>      
     </>
   );
 }

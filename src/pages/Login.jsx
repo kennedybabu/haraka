@@ -25,7 +25,7 @@ const Login = () => {
         <div className='w-[350px] mx-auto flex flex-col px-2 items-center'>
             <p className='uppercase'>Login</p>
             {error? <p>{error}</p> : null}
-            <form onSubmit={handleSubmit} className='mx-auto flex flex-col'>
+            <form onSubmit={handleSubmit} className='mx-auto flex flex-col mt-12'>
                 <input className='p-2 my-1' onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Email' autoComplete='email'/>
                 <input className='p-2 my-1' onChange={(e) => setPassword(e.target.value)} type="password" placeholder='password' autoComplete='current-password'/>
                 <button className='my-1 rounded-[5px] h-[36px] bg-[#6c8aec] text-[#ffff] '>Login</button>

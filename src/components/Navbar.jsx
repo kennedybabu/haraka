@@ -15,26 +15,25 @@ const Navbar = () => {
         }
     }
 
-
   return (
     <div className='w-full h-[60px] flex items-center justify-between px-2 text-[#1b2a4e]'>
         <Link to='/'>
             <p className='text-[24px]'>Har<span className='text-[#335eea]'>a</span>ka</p>
         </Link>
-        <div className='h-full flex items-center'>
+        <div className='h-full flex items-center text-[14px]'>
           
             {user?.email ? 
-            (
-                
-                <div>
+            (                
+                <div className='flex items-center font-[300]'>
                     <Link to='/account'>
                         <p>Account</p>
                     </Link>
-                    <p onClick={handleLogout}>logout</p>
+                    <span className='px-1'>|</span>
+                    <p onClick={handleLogout} className='cursor-pointer'>logout</p>
                 </div>
             ): (
                 <Link to='/login'>
-                    <p>login</p>
+                    <p className='font-[300]'>login</p>
                 </Link>
             )}
           
