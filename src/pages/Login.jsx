@@ -20,21 +20,21 @@ const Login = () => {
     }
   }
   return (
-    <div>
-        <div>
-        <div>
-            <p>Login</p>
+    <div className='w-full h-full'>
+    
+        <div className='w-[350px] mx-auto flex flex-col px-2 items-center'>
+            <p className='uppercase'>Login</p>
             {error? <p>{error}</p> : null}
-            <form onSubmit={handleSubmit}>
-                <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Email' autoComplete='email'/>
-                <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='password' autoComplete='current-password'/>
-                <button>Login</button>
-            </form>
-            <div>
-              <span> <p>Need an account? </p></span><Link to='/signup'>Sign Up</Link>
-            </div>
+            <form onSubmit={handleSubmit} className='mx-auto flex flex-col'>
+                <input className='p-2 my-1' onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Email' autoComplete='email'/>
+                <input className='p-2 my-1' onChange={(e) => setPassword(e.target.value)} type="password" placeholder='password' autoComplete='current-password'/>
+                <button className='my-1 rounded-[5px] h-[36px] bg-[#6c8aec] text-[#ffff] '>Login</button>
+                <div className='w-full flex justify-between'>
+                  <span><small>Need an account? </small></span><Link to='/signup'><small className='cursor-pointer'>Sign Up</small></Link>
+                </div>
+            </form>            
         </div>
-    </div>
+    
     </div>
   )
 }

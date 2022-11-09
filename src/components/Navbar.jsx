@@ -17,9 +17,9 @@ const Navbar = () => {
 
 
   return (
-    <div className='w-full h-[60px] flex items-center justify-between px-2'>
+    <div className='w-full h-[60px] flex items-center justify-between px-2 text-[#1b2a4e]'>
         <Link to='/'>
-            <p>haraka</p>
+            <p className='text-[24px]'>Har<span className='text-[#335eea]'>a</span>ka</p>
         </Link>
         <div className='h-full flex items-center'>
           
