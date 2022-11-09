@@ -17,17 +17,12 @@ const Navbar = () => {
 
 
   return (
-    <div>
+    <div className='w-full h-[60px] flex items-center justify-between px-2'>
         <Link to='/'>
             <p>haraka</p>
         </Link>
-        <div>
-            {/* <Link to='/login'>
-                <p>login</p>
-            </Link>
-            <Link to='/signup'>
-                <p>Signup</p>
-            </Link> */}
+        <div className='h-full flex items-center'>
+          
             {user?.email ? 
             (
                 
