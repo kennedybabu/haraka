@@ -14,7 +14,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   const [dark, setDark] = useState(false)
 
-  function hanldeDarkMode() {
+  function handleDarkMode() {
     setDark(!dark)
   }
 
@@ -31,12 +31,12 @@ function App() {
   return (
     <>
       <AuthContextProvider>
-        <Navbar dark={dark} darkMode={darkMode} lightMode={lightMode} hanldeDarkMode={hanldeDarkMode}/>
+        <Navbar dark={dark} darkMode={darkMode} lightMode={lightMode} handleDarkMode={handleDarkMode}/>
         <Routes>
           <Route path='/' exact element={<Landingpage dark={dark} darkMode={darkMode} lightMode={lightMode}/>}/>
           <Route path='/login'  element={<Login/>}/>
           <Route path='/signup'  element={<Signup/>}/>
-          <Route path='/account'  element={<ProtectedRoute><Account/></ProtectedRoute>}/>
+          <Route path='/account'  element={<ProtectedRoute><Account dark={dark} darkMode={darkMode} lightMode={lightMode}/></ProtectedRoute>}/>
         </Routes>
       </AuthContextProvider>      
     </>

@@ -9,3 +9,8 @@
 body {
   font-family: 'Rubik', sans-serif
 }
+
+
+.bottom-border {
+  border-bottom: 1px solid gray;
+}

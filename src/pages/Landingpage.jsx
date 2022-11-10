@@ -22,10 +22,10 @@ const Landingpage = (props) => {
   
   return (
     <div style={props.dark ? props.darkMode : props.lightMode} className='w-full items-center flex flex-col h-full '>
-        <div className='min-h-[40vh] w-full flex items-end' >
+        <div className='h-[40vh] w-full flex items-end' >
             <img src={Image} alt="/" className='w-[60%] mx-auto' />
         </div>
-        <div className='w-full text-center'>
+        <div className='w-full text-center my-2 p-2'>
             <h2 className='w-[250px] mx-auto text-[28px]'>Haraka, sending money is just a click away.</h2>
             <p className='text-[#869ab8] font-[300] w-[300px] mx-auto'>Register and send money to your friends and family.</p>
             <hr className='w-[20%] mx-auto my-4'/>
