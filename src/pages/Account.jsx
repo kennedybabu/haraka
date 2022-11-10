@@ -5,7 +5,8 @@ import {GiPayMoney} from "react-icons/gi"
 
 const Account = (props) => {
   const {user} = UserAuth()
-  const [accBalance, setAccBalance] = useState('0') 
+  const [accBalance, setAccBalance] = useState(0) 
+  const [error , setError] = useState('')
 
   const [uploadFunds, setUploadFunds] = useState(0)
   const [receiverEmail, setReceiverEmail] = useState('')  
@@ -28,9 +29,13 @@ const Account = (props) => {
 
   function topUp() {
       if(uploadFunds > 0){
-        setAccBalance(parseInt(uploadFunds) + parseInt(accBalance))
-        localStorage.setItem('accBalance', JSON.stringify(accBalance))
-      } 
+        let total = parseInt(uploadFunds) + parseInt(accBalance)
+        setAccBalance(total)
+        localStorage.setItem('accBalance', total)
+      } else {
+        setError('Please input valid number')
+      }
+      setToppingUp(false)
   }
 
   function handleSend() {
@@ -41,14 +46,10 @@ const Account = (props) => {
     setToppingUp(!toppingUp)
   }
 
-
   const accDarkMode = {
     backgroundColor: '#74A4BC',
     color: '#1b2A4E'    
   }
-
-
-
 
   return (
     <div style={props.dark ? accDarkMode : props.lightMode} className='w-full px-2 min-h-[92vh] flex flex-col md:min-h-[95vh]'>
@@ -87,6 +88,7 @@ const Account = (props) => {
       {/* top up */}
       {toppingUp ? (
         <div className='border rounded-md my-2 p-2 md:w-[60%] md:mx-auto'>
+          {error ? <p className='bg-red-200 p-2'>{error}</p> : null}
           <h2 className='py-2'>Top Up From Mpesa* line</h2>
         <div className='flex flex-col'>
             <label htmlFor="amount">top up amount</label>
