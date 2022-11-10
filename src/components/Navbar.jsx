@@ -18,6 +18,7 @@ const Navbar = (props) => {
         } catch(error) {
             console.log(error)
         }
+        setNav(false)
     }
 
     const mobileNavLightMode = {
@@ -68,10 +69,23 @@ const Navbar = (props) => {
         {nav ? (
             <div style={props.dark ? mobileNavDarkMode : mobileNavLightMode} className='absolute w-full backdrop-blur-md left-0 h-screen top-0 flex flex-col items-center justify-center'>
                   <div className='mr-2' onClick={props.handleDarkMode}>
-                {props.dark ? <BsSun className='cursor-pointer'/> : <MdOutlineDarkMode className='cursor-pointer'/>}
+                {props.dark ? <BsSun className='cursor-pointer' onClick={(e) => setNav(false)}/> : <MdOutlineDarkMode className='cursor-pointer' onClick={(e) => setNav(false)}/>}
             </div>
-                <Link>Account</Link>
-                <Link>Logout</Link>
+                {/* <Link to='/account'>Account</Link>
+                <Link onClick={handleLogout}>Logout</Link> */}
+                {user?.email ? 
+                    (                
+                        <div className='flex items-center font-[300] flex-col'>
+                            <Link to='/account' onClick={(e) => setNav(false)}>
+                                <p>Account</p>
+                            </Link>                            
+                            <p onClick={handleLogout} className='cursor-pointer'>logout</p>
+                        </div>
+                    ): (
+                        <Link to='/login'>
+                            <p className='font-[300]' onClick={(e) => setNav(false)}>login</p>
+                        </Link>
+                )} 
             </div>
         ): null }
 

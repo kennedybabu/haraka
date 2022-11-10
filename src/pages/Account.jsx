@@ -36,8 +36,6 @@ const Account = (props) => {
     setToppingUp(!toppingUp)
   }
 
-  // console.log(uploadFunds)
-  // console.log('acc', total)
 
   return (
     <div style={props.dark ? props.darkMode : props.lightMode} className='w-full px-2 min-h-[92vh] flex flex-col'>
