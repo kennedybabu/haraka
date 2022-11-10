@@ -43,7 +43,7 @@ const Landingpage = (props) => {
         <div className='h-[40vh] w-full flex items-end lg:w-[45%]' >
             <img src={Image} alt="/" className='w-[60%] mx-auto' />
         </div>
-        <div className='lg:flex flex-col items-start'>
+        <div className='lg:flex flex-col flex fe items-center lg:items-start'>
           <div className='w-full text-center lg:text-left my-2 p-2'>
               <h2 className='w-[250px] mx-auto lg:ml-0 text-[28px]'>Haraka, sending money is just a click away.</h2>
               <p className='text-[#6E6362] font-[300] w-[300px] mx-auto'>Register and send money to your friends and family.</p>

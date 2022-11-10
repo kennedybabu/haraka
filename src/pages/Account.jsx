@@ -5,9 +5,9 @@ import {GiPayMoney} from "react-icons/gi"
 
 const Account = (props) => {
   const {user} = UserAuth()
-  const [accBalance, setAccBalance] = useState(0) 
+  const [accBalance, setAccBalance] = useState('0') 
 
-  const [uploadFunds, setUploadFunds] = useState('')
+  const [uploadFunds, setUploadFunds] = useState(0)
   const [receiverEmail, setReceiverEmail] = useState('')  
 
   const [sendingMoney, setSendingMoney] = useState(false)
@@ -17,15 +17,20 @@ const Account = (props) => {
 
   }
 
-  let total
+  useEffect(() => {
+    let prevBalance = JSON.parse(localStorage.getItem('accBalance'))
+    if(prevBalance) {
+      setAccBalance(prevBalance)
+    } else {
+      setAccBalance(0)
+    }
+  }, [])
 
-  function topUp(uploadFunds, accBalance) {
-    let amount = parseInt(uploadFunds)
-    
-    total = amount + parseInt(accBalance)
-    
-    console.log(typeof accBalance)
-    setAccBalance(total)
+  function topUp() {
+      if(uploadFunds > 0){
+        setAccBalance(parseInt(uploadFunds) + parseInt(accBalance))
+        localStorage.setItem('accBalance', JSON.stringify(accBalance))
+      } 
   }
 
   function handleSend() {
@@ -44,10 +49,11 @@ const Account = (props) => {
 
 
 
+
   return (
     <div style={props.dark ? accDarkMode : props.lightMode} className='w-full px-2 min-h-[92vh] flex flex-col md:min-h-[95vh]'>
       <div className='mt-[100px] md:w-[60%] md:mx-auto'>
-        <h4>User Details</h4>
+        <h4 className='tracking-wide'>User Details</h4>
         <p>Acc Email: <span className='font-bold'>{user?.email}</span></p>        
         <small>Balance: <span className='font-bold'>Ksh {accBalance}</span></small>
       </div>
@@ -86,7 +92,7 @@ const Account = (props) => {
             <label htmlFor="amount">top up amount</label>
             <input className='bottom-border p-2 my-1' onChange={(e) => setUploadFunds(e.target.value)}  type="number" name='amount' placeholder='amount top up' />
         </div>          
-        <button onClick={topUp} disabled={true} className='border border-[gray] px-[10px] rounded-[25px]'>Top Up</button>
+        <button onClick={(e) => topUp()} className='border border-[gray] px-[10px] rounded-[25px]'>Top Up</button>
        </div>
       ) : null }
 

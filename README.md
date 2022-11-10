@@ -1,10 +1,16 @@
-# Getting Started with Create React App
+# Haraka App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Haraka is a mockup for an application, thats lets users sign up for the application,
+top up amount from their phones and be able to send it to other users.
 
-## Available Scripts
+## Technologies used
 
-In the project directory, you can run:
+-React
+-JavaScript
+-Tailwind
+-React-Icons
+-Firebase (user authentication)
+-Coloors
 
 ### `npm start`
 
