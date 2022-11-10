@@ -24,19 +24,6 @@ const Landingpage = (props) => {
     color: '1b2A4E'    
   }
 
-
-  // const landingLightkMode = {
-  //   backgroundColor: '#fffff',
-  //   color: '1b2A4E',
-  //   borderColor: '#fffff'
-  // }
-
-  // const buttonDarkMode = {
-  //   backgroundColor: '',
-  //   color: '',
-  //   borderColor: ''
-  // }
-
   
   return (
     <div style={props.dark ? landingDarkMode : props.lightMode} className='w-full items-center flex flex-col h-full md:h-full lg:overflow-hidden lg:flex-row'>
@@ -45,7 +32,7 @@ const Landingpage = (props) => {
         </div>
         <div className='lg:flex flex-col flex fe items-center lg:items-start'>
           <div className='w-full text-center lg:text-left my-2 p-2'>
-              <h2 className='w-[250px] mx-auto lg:ml-0 text-[28px]'>Haraka, sending money is just a click away.</h2>
+              <h2 className='w-[250px] mx-auto lg:ml-0 text-[28px]'>Haraka, <span className='bg-green-500 p-[2px]'>sending</span> money as easy as a click away.</h2>
               <p className='text-[#6E6362] font-[300] w-[300px] mx-auto'>Register and send money to your friends and family.</p>
               <hr className='w-[20%] mx-auto my-4'/>
           </div>

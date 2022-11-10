@@ -19,10 +19,13 @@ const Account = (props) => {
   function sendMoney() {
       if(sendingAmount > accBalance) {
           setError('You have insufficient funds, please top up.')
+          clearMessage()
       } else if(receiverEmail && sendingAmount) {
           let total = parseInt(accBalance ) - parseInt(sendingAmount)
           setAccBalance(total)
           localStorage.setItem('accBalance', total)
+          setSuccessMessage(`Transfer of Ksh.${sendingAmount} to ${receiverEmail} successful`)
+          clearMessage()
       }
   }
 
@@ -40,9 +43,9 @@ const Account = (props) => {
         let total = parseInt(uploadFunds) + parseInt(accBalance)
         setAccBalance(total)
         localStorage.setItem('accBalance', total)
-        setSuccessMessage(`Transfer of ${sendingAmount} to ${receiverEmail} successful`)
       } else {
         setError('Please input valid number')
+        clearMessage()
       }
       setToppingUp(false)
   }
@@ -60,6 +63,13 @@ const Account = (props) => {
     color: '#1b2A4E'    
   }
 
+  const clearMessage = () => {
+    setTimeout(() => {
+      setSuccessMessage('')
+      setError('')
+    }, 3000)
+  }
+
   return (
     <div style={props.dark ? accDarkMode : props.lightMode} className='w-full px-2 min-h-[92vh] flex flex-col md:min-h-[95vh]'>
       <div className='mt-[100px] md:w-[60%] md:mx-auto'>
@@ -69,11 +79,11 @@ const Account = (props) => {
       </div>
       <div className='w-full flex items-center justify-between px-3 md:px-0 py-4 md:w-[60%] md:mx-auto'>
         <div style={props.dark ? props.lightMode : props.darkMode} onClick={handleTopUp} className='flex items-center  border border-[grey] px-2 rounded-[25px]'>
-          <GiPayMoney className='mr-1 text-white' style={props.dark ? props.lightMode : props.darkMode}/>
+          <GiPayMoney onClick={(e) => setSendingMoney(false)} className='mr-1 text-white' style={props.dark ? props.lightMode : props.darkMode}/>
           top up
         </div>
         <div style={props.dark ? props.lightMode : props.darkMode} onClick={handleSend} className='flex items-center border border-[grey] px-2 rounded-[25px]'>
-          <FiSend className='mr-1' style={props.dark ? props.lightMode : props.darkMode}/>
+          <FiSend onClick={(e) => setToppingUp(false)} className='mr-1' style={props.dark ? props.lightMode : props.darkMode}/>
            send Money
         </div>
       </div>
