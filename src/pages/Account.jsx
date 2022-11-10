@@ -39,12 +39,12 @@ const Account = (props) => {
 
   return (
     <div style={props.dark ? props.darkMode : props.lightMode} className='w-full px-2 min-h-[92vh] flex flex-col'>
-      <div className='mt-[100px]'>
+      <div className='mt-[100px] md:w-[60%] md:mx-auto'>
         <h4>User Details</h4>
         <p>Acc Email: {user?.email}</p>        
         <small>Balance: Ksh {accBalance}</small>
       </div>
-      <div className='w-full flex items-center justify-between px-3 py-4'>
+      <div className='w-full flex items-center justify-between px-3 md:px-0 py-4 md:w-[60%] md:mx-auto'>
         <div style={props.dark ? props.lightMode : props.darkMode} onClick={handleTopUp} className='flex items-center  border border-[grey] px-2 rounded-[25px]'>
           <GiPayMoney className='mr-1 text-white' style={props.dark ? props.lightMode : props.darkMode}/>
           top up
@@ -57,7 +57,7 @@ const Account = (props) => {
 
       {/* transfer funds  */}
       {sendingMoney ? (
-      <div className='border rounded-md my-2 p-2'>
+      <div className='border rounded-md my-2 p-2 md:w-[60%] md:mx-auto'>
          <h2 className='py-2'>Send Money</h2>
         <div className='flex flex-col'>
              <label htmlFor="email" className='font-[300]'>send to</label>
@@ -73,7 +73,7 @@ const Account = (props) => {
 
       {/* top up */}
       {toppingUp ? (
-        <div className='border rounded-md my-2 p-2'>
+        <div className='border rounded-md my-2 p-2 md:w-[60%] md:mx-auto'>
           <h2 className='py-2'>Top Up From Mpesa* line</h2>
         <div className='flex flex-col'>
             <label htmlFor="amount">top up amount</label>

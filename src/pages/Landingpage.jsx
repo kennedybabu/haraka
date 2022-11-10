@@ -21,7 +21,7 @@ const Landingpage = (props) => {
 
   
   return (
-    <div style={props.dark ? props.darkMode : props.lightMode} className='w-full items-center flex flex-col h-full '>
+    <div style={props.dark ? props.darkMode : props.lightMode} className='w-full items-center flex flex-col h-full md:h-screen overflow-hidden'>
         <div className='h-[40vh] w-full flex items-end' >
             <img src={Image} alt="/" className='w-[60%] mx-auto' />
         </div>

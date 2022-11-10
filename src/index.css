@@ -14,3 +14,8 @@ body {
 .bottom-border {
   border-bottom: 1px solid gray;
 }
+
+
+.footer {
+  clip-path: polygon(0 0, 100% 33%, 100% 100%, 0% 100%);
+}

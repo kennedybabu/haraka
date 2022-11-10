@@ -19,13 +19,18 @@ const Login = () => {
       setError(error.message)
     }
   }
+
+  // let removeError = setTimeout(function() {
+
+  // }, 3000)
   return (
     <div className='w-full h-full'>
     
-        <div className='w-[350px] mx-auto flex flex-col px-2 items-center'>
-            <p className='uppercase'>Login</p>
-            {error? <p>{error}</p> : null}
-            <form onSubmit={handleSubmit} className='mx-auto flex flex-col mt-12'>
+        <div className='w-[350px] md:min-w-[450px] mx-auto flex flex-col px-2 items-center'>
+            <p className='uppercase md:my-4'>Login</p>
+            
+            <form onSubmit={handleSubmit} className='mx-auto flex flex-col mt-12 md:w-full'>
+            {error? <p className='bg-red-200 p-2'>{error}</p> : null}
                 <input className='p-2 my-1' onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Email' autoComplete='email'/>
                 <input className='p-2 my-1' onChange={(e) => setPassword(e.target.value)} type="password" placeholder='password' autoComplete='current-password'/>
                 <button className='my-1 rounded-[5px] h-[36px] bg-[#6c8aec] text-[#ffff] '>Login</button>
