@@ -5,12 +5,12 @@ top up amount from their phones and be able to send it to other users.
 
 ## Technologies used
 
--React
--JavaScript
--Tailwind
--React-Icons
--Firebase (user authentication)
--Coloors
+* React
+* JavaScript
+* Tailwind CSS
+* React-Icons
+* Firebase (user authentication and Hosting)
+* Coloors
 
 ### `npm start`
 

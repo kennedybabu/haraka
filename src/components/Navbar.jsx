@@ -71,8 +71,7 @@ const Navbar = (props) => {
                   <div className='mr-2' onClick={props.handleDarkMode}>
                 {props.dark ? <BsSun className='cursor-pointer' onClick={(e) => setNav(false)}/> : <MdOutlineDarkMode className='cursor-pointer' onClick={(e) => setNav(false)}/>}
             </div>
-                {/* <Link to='/account'>Account</Link>
-                <Link onClick={handleLogout}>Logout</Link> */}
+               
                 {user?.email ? 
                     (                
                         <div className='flex items-center font-[300] flex-col'>

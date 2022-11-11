@@ -20,9 +20,7 @@ const Login = () => {
     }
   }
 
-  // let removeError = setTimeout(function() {
 
-  // }, 3000)
   return (
     <div className='w-full h-full'>
     
